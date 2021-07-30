@@ -11,6 +11,8 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if(parseInt(b) === 0) return "ERR: Division by 0"
+
     const ROUND_TO_X_DECIMAL_PLACE = 2;
     const adjustment = Math.pow(10, ROUND_TO_X_DECIMAL_PLACE)
     return Math.round((parseInt(a)/parseInt(b) + Number.EPSILON) * adjustment)/adjustment;
