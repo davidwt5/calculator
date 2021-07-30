@@ -38,6 +38,7 @@ operatorBtns.forEach(btn => {
     });
 });
 
+// Executes the operation and displays it
 const equalsBtn = document.getElementById('=');
 equalsBtn.addEventListener('click', e => {
     if(state.operand === SECOND) {
@@ -53,9 +54,23 @@ equalsBtn.addEventListener('click', e => {
     }
 });
 
-const reset = document.querySelector('.reset');
-reset.addEventListener('click', e => {
+// Clears the display and resets the state of the calculator
+const resetBtn = document.querySelector('.reset');
+resetBtn.addEventListener('click', e => {
     display.innerText = 0;
     resetState(state);
     current = 0;
 });
+
+
+// Remove the last number in the display
+// const deleteBtn = document.getElementById('delete');
+// deleteBtn.addEventListener('click', e => {
+//     if(display.innerText.length === 1) {
+//         display.innerText = 0;
+//         append = false;
+//     }
+//     else {
+//         display.innerText = display.innerText.slice(0, -1);
+//     }
+// });
