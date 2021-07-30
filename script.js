@@ -20,20 +20,22 @@ numberBtns.forEach(btn => {
     })
 });
 
-const addBtn = document.getElementById('+');
-addBtn.addEventListener('click', e => { 
-    if(isNaN(parseInt(display.innerText)) || state.operand === SECOND) {
-        state.operator = '+';
-    }
-    // If you click the operator button, means you're done inputting first operand
-    // We save the value on display and the operator clicked
-    // We then await the second operand
-    else if(state.operand === FIRST) {
-        current = display.innerText;
-        state.operator = '+';
-        state.operand = SECOND;
-        state.append = false;
-    }
+const operatorBtns = document.querySelectorAll('.operator')
+operatorBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+        if(isNaN(parseInt(display.innerText)) || state.operand === SECOND) {
+            state.operator = e.target.id;
+        }
+        // If you click the operator button, means you're done inputting first operand
+        // We save the value on display and the operator clicked
+        // We then await the second operand
+        else if(state.operand === FIRST) {
+            current = display.innerText;
+            state.operator = e.target.id;
+            state.operand = SECOND;
+            state.append = false;
+        }
+    });
 });
 
 const equalsBtn = document.getElementById('=');
