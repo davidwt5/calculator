@@ -55,6 +55,7 @@ equalsBtn.addEventListener('click', e => {
 
 const reset = document.querySelector('.reset');
 reset.addEventListener('click', e => {
+    display.innerText = 0;
     resetState(state);
     current = 0;
 });
